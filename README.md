@@ -29,4 +29,6 @@ Three environment variables above would be reflected in `app/docker-compose.yml`
    <img width="944" alt="Screenshot 2022-11-22 at 22 22 50" src="https://user-images.githubusercontent.com/93645043/203324934-408ad268-d09f-40e0-a7f2-aa0565cfcc86.png">
 5. Access Grafana dashboard after you see issues of projects from Snyk API in response of CURL
 <img width="1427" alt="Screenshot 2022-11-22 at 22 25 50" src="https://user-images.githubusercontent.com/93645043/203325372-19c90246-d8c6-4d0e-a42e-02a7eec20675.png">
+6. To stop the POC dashboard, enter the command, `docker-compose down -v`
 
+* Reminder: Grafana dashboard is in read-only mode.  Grafana config files would need to be adjusted to create/adjust the dashboard.
