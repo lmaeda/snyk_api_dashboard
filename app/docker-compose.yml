@@ -12,7 +12,7 @@ services:
     image: grafana/snyk_exporter
     command:
       - '--log.level=info'
-      - '--snyk.api-token=8dc0b1e2-682d-4b11-820b-9c46326ff331'
+      - "--snyk.api-token=${SNYK_TOKEN}"
       - '--snyk.interval=75'
       - '--snyk.organization=d0138106-2e76-4174-980b-e31daac65cc6'
       - '--snyk.organization=10f6c201-a59a-4a87-8aa8-a8f576567b76'
