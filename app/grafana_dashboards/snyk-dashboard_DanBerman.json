@@ -1,0 +1,6731 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 670,
+  "iteration": 1611838315031,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 83,
+      "panels": [],
+      "repeat": null,
+      "title": "Dashboard Row",
+      "type": "row"
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "height": "300px",
+      "id": 82,
+      "links": [],
+      "pageSize": null,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 2,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "hidden"
+        },
+        {
+          "alias": "Total Vulnerabilities",
+          "align": "auto",
+          "colorMode": "row",
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "pattern": "Value",
+          "thresholds": [
+            "1",
+            "5"
+          ],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "/.*/",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total) by (project)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Total Vulnerabilities per Project",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 84,
+      "panels": [],
+      "repeat": "Project",
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-avro-schema-registry:docker",
+          "value": "lunar-way-avro-schema-registry:docker"
+        }
+      },
+      "title": "$Project",
+      "type": "row"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(137, 15, 2, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#d44a3a",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 0,
+        "y": 10
+      },
+      "id": 3,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-avro-schema-registry:docker",
+          "value": "lunar-way-avro-schema-registry:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"high\", project=\"$Project\"})",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "High",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(193, 92, 23, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#c15c17",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 2,
+        "y": 10
+      },
+      "id": 4,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-avro-schema-registry:docker",
+          "value": "lunar-way-avro-schema-registry:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"medium\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Medium",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 4,
+        "y": 10
+      },
+      "id": 5,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-avro-schema-registry:docker",
+          "value": "lunar-way-avro-schema-registry:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"low\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Low",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 6,
+        "y": 10
+      },
+      "id": 139,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-avro-schema-registry:docker",
+          "value": "lunar-way-avro-schema-registry:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Ignored",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {
+        "high": "#bf1b00",
+        "low": "#447ebc",
+        "medium": "#c15c17"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 7,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 10
+      },
+      "height": "",
+      "hiddenSeries": false,
+      "id": 1,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "repeat": null,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-avro-schema-registry:docker",
+          "value": "lunar-way-avro-schema-registry:docker"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by(severity) (snyk_vulnerabilities_total{project=~\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{severity}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Issue Count History",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 10
+      },
+      "id": 81,
+      "links": [],
+      "pageSize": null,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-avro-schema-registry:docker",
+          "value": "lunar-way-avro-schema-registry:docker"
+        }
+      },
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 2,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "hidden"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "__name__",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "job",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "project",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Count",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "pattern": "Value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": "Title",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "issue_title",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{project=\"$Project\"}) by (issue_title)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Issues by Type",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 140,
+      "panels": [],
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 84,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-jupyter-notebook:docker",
+          "value": "lunar-way-jupyter-notebook:docker"
+        }
+      },
+      "title": "$Project",
+      "type": "row"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(137, 15, 2, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#d44a3a",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 0,
+        "y": 18
+      },
+      "id": 141,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 3,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-jupyter-notebook:docker",
+          "value": "lunar-way-jupyter-notebook:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"high\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "High",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(193, 92, 23, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#c15c17",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 2,
+        "y": 18
+      },
+      "id": 142,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 4,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-jupyter-notebook:docker",
+          "value": "lunar-way-jupyter-notebook:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"medium\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Medium",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 4,
+        "y": 18
+      },
+      "id": 143,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 5,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-jupyter-notebook:docker",
+          "value": "lunar-way-jupyter-notebook:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"low\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Low",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 6,
+        "y": 18
+      },
+      "id": 144,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 139,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-jupyter-notebook:docker",
+          "value": "lunar-way-jupyter-notebook:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Ignored",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {
+        "high": "#bf1b00",
+        "low": "#447ebc",
+        "medium": "#c15c17"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 7,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 18
+      },
+      "height": "",
+      "hiddenSeries": false,
+      "id": 145,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "repeat": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 1,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-jupyter-notebook:docker",
+          "value": "lunar-way-jupyter-notebook:docker"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by(severity) (snyk_vulnerabilities_total{ignored=\"false\", project=~\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{severity}}",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\",project=~\"$Project\"})",
+          "interval": "",
+          "legendFormat": "ignored",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Issue Count History",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 18
+      },
+      "id": 146,
+      "links": [],
+      "pageSize": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 81,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-jupyter-notebook:docker",
+          "value": "lunar-way-jupyter-notebook:docker"
+        }
+      },
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 2,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "hidden"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "__name__",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "job",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "project",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Count",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "pattern": "Value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": "Title",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "issue_title",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{project=\"$Project\"}) by (issue_title)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Issues by Type",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 25
+      },
+      "id": 147,
+      "panels": [],
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 84,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-airflow:docker",
+          "value": "lunar-way-airflow:docker"
+        }
+      },
+      "title": "$Project",
+      "type": "row"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(137, 15, 2, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#d44a3a",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 0,
+        "y": 26
+      },
+      "id": 148,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 3,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-airflow:docker",
+          "value": "lunar-way-airflow:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"high\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "High",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(193, 92, 23, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#c15c17",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 2,
+        "y": 26
+      },
+      "id": 149,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 4,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-airflow:docker",
+          "value": "lunar-way-airflow:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"medium\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Medium",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 4,
+        "y": 26
+      },
+      "id": 150,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 5,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-airflow:docker",
+          "value": "lunar-way-airflow:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"low\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Low",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 6,
+        "y": 26
+      },
+      "id": 151,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 139,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-airflow:docker",
+          "value": "lunar-way-airflow:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Ignored",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {
+        "high": "#bf1b00",
+        "low": "#447ebc",
+        "medium": "#c15c17"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 7,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 26
+      },
+      "height": "",
+      "hiddenSeries": false,
+      "id": 152,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "repeat": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 1,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-airflow:docker",
+          "value": "lunar-way-airflow:docker"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by(severity) (snyk_vulnerabilities_total{ignored=\"false\", project=~\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{severity}}",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\",project=~\"$Project\"})",
+          "interval": "",
+          "legendFormat": "ignored",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Issue Count History",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 26
+      },
+      "id": 153,
+      "links": [],
+      "pageSize": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 81,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-airflow:docker",
+          "value": "lunar-way-airflow:docker"
+        }
+      },
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 2,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "hidden"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "__name__",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "job",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "project",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Count",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "pattern": "Value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": "Title",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "issue_title",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{project=\"$Project\"}) by (issue_title)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Issues by Type",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 33
+      },
+      "id": 154,
+      "panels": [],
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 84,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-backstage:docker",
+          "value": "lunar-backstage:docker"
+        }
+      },
+      "title": "$Project",
+      "type": "row"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(137, 15, 2, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#d44a3a",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 0,
+        "y": 34
+      },
+      "id": 155,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 3,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-backstage:docker",
+          "value": "lunar-backstage:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"high\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "High",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(193, 92, 23, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#c15c17",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 2,
+        "y": 34
+      },
+      "id": 156,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 4,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-backstage:docker",
+          "value": "lunar-backstage:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"medium\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Medium",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 4,
+        "y": 34
+      },
+      "id": 157,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 5,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-backstage:docker",
+          "value": "lunar-backstage:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"low\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Low",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 6,
+        "y": 34
+      },
+      "id": 158,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 139,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-backstage:docker",
+          "value": "lunar-backstage:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Ignored",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {
+        "high": "#bf1b00",
+        "low": "#447ebc",
+        "medium": "#c15c17"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 7,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 34
+      },
+      "height": "",
+      "hiddenSeries": false,
+      "id": 159,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "repeat": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 1,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-backstage:docker",
+          "value": "lunar-backstage:docker"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by(severity) (snyk_vulnerabilities_total{ignored=\"false\", project=~\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{severity}}",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\",project=~\"$Project\"})",
+          "interval": "",
+          "legendFormat": "ignored",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Issue Count History",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 34
+      },
+      "id": 160,
+      "links": [],
+      "pageSize": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 81,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-backstage:docker",
+          "value": "lunar-backstage:docker"
+        }
+      },
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 2,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "hidden"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "__name__",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "job",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "project",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Count",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "pattern": "Value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": "Title",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "issue_title",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{project=\"$Project\"}) by (issue_title)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Issues by Type",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 41
+      },
+      "id": 161,
+      "panels": [],
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 84,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "jenkins:docker",
+          "value": "jenkins:docker"
+        }
+      },
+      "title": "$Project",
+      "type": "row"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(137, 15, 2, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#d44a3a",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 0,
+        "y": 42
+      },
+      "id": 162,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 3,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "jenkins:docker",
+          "value": "jenkins:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"high\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "High",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(193, 92, 23, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#c15c17",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 2,
+        "y": 42
+      },
+      "id": 163,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 4,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "jenkins:docker",
+          "value": "jenkins:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"medium\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Medium",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 4,
+        "y": 42
+      },
+      "id": 164,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 5,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "jenkins:docker",
+          "value": "jenkins:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"low\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Low",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 6,
+        "y": 42
+      },
+      "id": 165,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 139,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "jenkins:docker",
+          "value": "jenkins:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Ignored",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {
+        "high": "#bf1b00",
+        "low": "#447ebc",
+        "medium": "#c15c17"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 7,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 42
+      },
+      "height": "",
+      "hiddenSeries": false,
+      "id": 166,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "repeat": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 1,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "jenkins:docker",
+          "value": "jenkins:docker"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by(severity) (snyk_vulnerabilities_total{ignored=\"false\", project=~\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{severity}}",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\",project=~\"$Project\"})",
+          "interval": "",
+          "legendFormat": "ignored",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Issue Count History",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 42
+      },
+      "id": 167,
+      "links": [],
+      "pageSize": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 81,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "jenkins:docker",
+          "value": "jenkins:docker"
+        }
+      },
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 2,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "hidden"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "__name__",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "job",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "project",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Count",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "pattern": "Value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": "Title",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "issue_title",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{project=\"$Project\"}) by (issue_title)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Issues by Type",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 49
+      },
+      "id": 168,
+      "panels": [],
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 84,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-hubble-transformations:docker",
+          "value": "lunar-way-hubble-transformations:docker"
+        }
+      },
+      "title": "$Project",
+      "type": "row"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(137, 15, 2, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#d44a3a",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 0,
+        "y": 50
+      },
+      "id": 169,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 3,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-hubble-transformations:docker",
+          "value": "lunar-way-hubble-transformations:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"high\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "High",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(193, 92, 23, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#c15c17",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 2,
+        "y": 50
+      },
+      "id": 170,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 4,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-hubble-transformations:docker",
+          "value": "lunar-way-hubble-transformations:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"medium\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Medium",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 4,
+        "y": 50
+      },
+      "id": 171,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 5,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-hubble-transformations:docker",
+          "value": "lunar-way-hubble-transformations:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"low\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Low",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 6,
+        "y": 50
+      },
+      "id": 172,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 139,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-hubble-transformations:docker",
+          "value": "lunar-way-hubble-transformations:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Ignored",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {
+        "high": "#bf1b00",
+        "low": "#447ebc",
+        "medium": "#c15c17"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 7,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 50
+      },
+      "height": "",
+      "hiddenSeries": false,
+      "id": 173,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "repeat": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 1,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-hubble-transformations:docker",
+          "value": "lunar-way-hubble-transformations:docker"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by(severity) (snyk_vulnerabilities_total{ignored=\"false\", project=~\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{severity}}",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\",project=~\"$Project\"})",
+          "interval": "",
+          "legendFormat": "ignored",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Issue Count History",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 50
+      },
+      "id": 174,
+      "links": [],
+      "pageSize": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 81,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-hubble-transformations:docker",
+          "value": "lunar-way-hubble-transformations:docker"
+        }
+      },
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 2,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "hidden"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "__name__",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "job",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "project",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Count",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "pattern": "Value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": "Title",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "issue_title",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{project=\"$Project\"}) by (issue_title)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Issues by Type",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 57
+      },
+      "id": 175,
+      "panels": [],
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 84,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-aml-risk-scoring-service:docker",
+          "value": "lunar-way-aml-risk-scoring-service:docker"
+        }
+      },
+      "title": "$Project",
+      "type": "row"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(137, 15, 2, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#d44a3a",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 0,
+        "y": 58
+      },
+      "id": 176,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 3,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-aml-risk-scoring-service:docker",
+          "value": "lunar-way-aml-risk-scoring-service:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"high\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "High",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(193, 92, 23, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#c15c17",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 2,
+        "y": 58
+      },
+      "id": 177,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 4,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-aml-risk-scoring-service:docker",
+          "value": "lunar-way-aml-risk-scoring-service:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"medium\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Medium",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 4,
+        "y": 58
+      },
+      "id": 178,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 5,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-aml-risk-scoring-service:docker",
+          "value": "lunar-way-aml-risk-scoring-service:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"low\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Low",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 6,
+        "y": 58
+      },
+      "id": 179,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 139,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-aml-risk-scoring-service:docker",
+          "value": "lunar-way-aml-risk-scoring-service:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Ignored",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {
+        "high": "#bf1b00",
+        "low": "#447ebc",
+        "medium": "#c15c17"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 7,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 58
+      },
+      "height": "",
+      "hiddenSeries": false,
+      "id": 180,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "repeat": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 1,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-aml-risk-scoring-service:docker",
+          "value": "lunar-way-aml-risk-scoring-service:docker"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by(severity) (snyk_vulnerabilities_total{ignored=\"false\", project=~\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{severity}}",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\",project=~\"$Project\"})",
+          "interval": "",
+          "legendFormat": "ignored",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Issue Count History",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 58
+      },
+      "id": 181,
+      "links": [],
+      "pageSize": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 81,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-aml-risk-scoring-service:docker",
+          "value": "lunar-way-aml-risk-scoring-service:docker"
+        }
+      },
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 2,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "hidden"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "__name__",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "job",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "project",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Count",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "pattern": "Value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": "Title",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "issue_title",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{project=\"$Project\"}) by (issue_title)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Issues by Type",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 65
+      },
+      "id": 182,
+      "panels": [],
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 84,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-nemid-service:docker",
+          "value": "lunar-way-nemid-service:docker"
+        }
+      },
+      "title": "$Project",
+      "type": "row"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(137, 15, 2, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#d44a3a",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 0,
+        "y": 66
+      },
+      "id": 183,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 3,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-nemid-service:docker",
+          "value": "lunar-way-nemid-service:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"high\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "High",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(193, 92, 23, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#c15c17",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 2,
+        "y": 66
+      },
+      "id": 184,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 4,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-nemid-service:docker",
+          "value": "lunar-way-nemid-service:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"medium\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Medium",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 4,
+        "y": 66
+      },
+      "id": 185,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 5,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-nemid-service:docker",
+          "value": "lunar-way-nemid-service:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"low\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Low",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 6,
+        "y": 66
+      },
+      "id": 186,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 139,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-nemid-service:docker",
+          "value": "lunar-way-nemid-service:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Ignored",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {
+        "high": "#bf1b00",
+        "low": "#447ebc",
+        "medium": "#c15c17"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 7,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 66
+      },
+      "height": "",
+      "hiddenSeries": false,
+      "id": 187,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "repeat": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 1,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-nemid-service:docker",
+          "value": "lunar-way-nemid-service:docker"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by(severity) (snyk_vulnerabilities_total{ignored=\"false\", project=~\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{severity}}",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\",project=~\"$Project\"})",
+          "interval": "",
+          "legendFormat": "ignored",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Issue Count History",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 66
+      },
+      "id": 188,
+      "links": [],
+      "pageSize": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 81,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-nemid-service:docker",
+          "value": "lunar-way-nemid-service:docker"
+        }
+      },
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 2,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "hidden"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "__name__",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "job",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "project",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Count",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "pattern": "Value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": "Title",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "issue_title",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{project=\"$Project\"}) by (issue_title)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Issues by Type",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 73
+      },
+      "id": 189,
+      "panels": [],
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 84,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-velero:docker",
+          "value": "lunar-way-velero:docker"
+        }
+      },
+      "title": "$Project",
+      "type": "row"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(137, 15, 2, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#d44a3a",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 0,
+        "y": 74
+      },
+      "id": 190,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 3,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-velero:docker",
+          "value": "lunar-way-velero:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"high\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "High",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(193, 92, 23, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#c15c17",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 2,
+        "y": 74
+      },
+      "id": 191,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 4,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-velero:docker",
+          "value": "lunar-way-velero:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"medium\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Medium",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 4,
+        "y": 74
+      },
+      "id": 192,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 5,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-velero:docker",
+          "value": "lunar-way-velero:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"low\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Low",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 6,
+        "y": 74
+      },
+      "id": 193,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 139,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-velero:docker",
+          "value": "lunar-way-velero:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Ignored",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {
+        "high": "#bf1b00",
+        "low": "#447ebc",
+        "medium": "#c15c17"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 7,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 74
+      },
+      "height": "",
+      "hiddenSeries": false,
+      "id": 194,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "repeat": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 1,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-velero:docker",
+          "value": "lunar-way-velero:docker"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by(severity) (snyk_vulnerabilities_total{ignored=\"false\", project=~\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{severity}}",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\",project=~\"$Project\"})",
+          "interval": "",
+          "legendFormat": "ignored",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Issue Count History",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 74
+      },
+      "id": 195,
+      "links": [],
+      "pageSize": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 81,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-velero:docker",
+          "value": "lunar-way-velero:docker"
+        }
+      },
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 2,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "hidden"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "__name__",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "job",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "project",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Count",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "pattern": "Value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": "Title",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "issue_title",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{project=\"$Project\"}) by (issue_title)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Issues by Type",
+      "transform": "table",
+      "type": "table-old"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 81
+      },
+      "id": 196,
+      "panels": [],
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 84,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-cloudwatch-exporter:docker",
+          "value": "lunar-way-cloudwatch-exporter:docker"
+        }
+      },
+      "title": "$Project",
+      "type": "row"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(137, 15, 2, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#d44a3a",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 0,
+        "y": 82
+      },
+      "id": 197,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 3,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-cloudwatch-exporter:docker",
+          "value": "lunar-way-cloudwatch-exporter:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"high\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "High",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(193, 92, 23, 0.49)",
+                "value": 1
+              },
+              {
+                "color": "#c15c17",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 2,
+        "y": 82
+      },
+      "id": 198,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 4,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-cloudwatch-exporter:docker",
+          "value": "lunar-way-cloudwatch-exporter:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"medium\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Medium",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 4,
+        "y": 82
+      },
+      "id": 199,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 5,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-cloudwatch-exporter:docker",
+          "value": "lunar-way-cloudwatch-exporter:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{severity=\"low\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Low",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(41, 156, 70, 0)",
+                "value": null
+              },
+              {
+                "color": "rgba(10, 67, 124, 0.51)",
+                "value": 1
+              },
+              {
+                "color": "#0a437c",
+                "value": 5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 2,
+        "x": 6,
+        "y": 82
+      },
+      "id": 200,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.3.5",
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 139,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-cloudwatch-exporter:docker",
+          "value": "lunar-way-cloudwatch-exporter:docker"
+        }
+      },
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\", project=\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Ignored",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {
+        "high": "#bf1b00",
+        "low": "#447ebc",
+        "medium": "#c15c17"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 7,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 82
+      },
+      "height": "",
+      "hiddenSeries": false,
+      "id": 201,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "repeat": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 1,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-cloudwatch-exporter:docker",
+          "value": "lunar-way-cloudwatch-exporter:docker"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by(severity) (snyk_vulnerabilities_total{ignored=\"false\", project=~\"$Project\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{severity}}",
+          "refId": "A"
+        },
+        {
+          "expr": "sum(snyk_vulnerabilities_total{ignored=\"true\",project=~\"$Project\"})",
+          "interval": "",
+          "legendFormat": "ignored",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Issue Count History",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "columns": [],
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 82
+      },
+      "id": 202,
+      "links": [],
+      "pageSize": null,
+      "repeatIteration": 1611838315031,
+      "repeatPanelId": 81,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "Project": {
+          "selected": false,
+          "text": "lunar-way-cloudwatch-exporter:docker",
+          "value": "lunar-way-cloudwatch-exporter:docker"
+        }
+      },
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 2,
+        "desc": true
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "hidden"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "__name__",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "job",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "pattern": "project",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Count",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "pattern": "Value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "none"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": "Title",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "issue_title",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "sum(snyk_vulnerabilities_total{project=\"$Project\"}) by (issue_title)",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "title": "Issues by Type",
+      "transform": "table",
+      "type": "table-old"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "tags": [],
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": "Prometheus",
+        "definition": "query_result(topk(10, sort_desc(sum(snyk_vulnerabilities_total) by (project))))",
+        "error": null,
+        "hide": 0,
+        "includeAll": true,
+        "label": null,
+        "multi": true,
+        "name": "Project",
+        "options": [],
+        "query": "query_result(topk(10, sort_desc(sum(snyk_vulnerabilities_total) by (project))))",
+        "refresh": 1,
+        "regex": ".*project=\"(.*)\".*",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "Snyk Dashboard",
+  "uid": "SwnPHSLGz",
+  "version": 4
+}
