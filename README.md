@@ -1,6 +1,15 @@
 # snyk_api_dashboard
 Automating vulnerability monitoring with Snyk, Prometheus and Grafana
 
+#### Reference
+Snyk Blog on Snyk_Exporter
+
+https://snyk.io/blog/vulnerability-monitoring-with-snyk-prometheus-and-grafana/
+
+The YouTube between the Lunar team, who developed the Snyk_Exporter, and Snyk
+
+https://www.youtube.com/watch?v=zJsxAx7MKKk
+
 ## Preparation
 
 Get the files of the project, and set environment variables below
@@ -16,9 +25,13 @@ Three environment variables above would be reflected in `app/docker-compose.yml`
 1. start `DockerDesktop`, and wait for DockerDesktop to get started
 2. From the directory, `app`, run the command, `docker-compose up -d`
 3. Use a web browser to access URLs below:
+
    3.1. Grafana    - http://localhost:3000/
+        
         3.1.1. Default UserId/Password : `admin/admin`
+        
    3.2. Prometheus - http://localhost:9090/targets?search=
+        
         3.2.1. Confirm both targets of prometheus is OK in status
         <img width="1206" alt="Screenshot 2022-11-22 at 22 17 55" src="https://user-images.githubusercontent.com/93645043/203323681-60dbeef0-cac4-40f6-857a-7bce1df584dd.png">
 4. Wait a few minutes for `snyk_exporter` to scrape issues of projects imported into Snyk, using Snyk API
