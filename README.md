@@ -33,7 +33,8 @@ Three environment variables above would be reflected in `app/docker-compose.yml`
    3.2. Prometheus - http://localhost:9090/targets?search=
         
         3.2.1. Confirm both targets of prometheus is OK in status
-        <img width="1206" alt="Screenshot 2022-11-22 at 22 17 55" src="https://user-images.githubusercontent.com/93645043/203323681-60dbeef0-cac4-40f6-857a-7bce1df584dd.png">
+        
+<img width="1206" alt="Screenshot 2022-11-22 at 22 17 55" src="https://user-images.githubusercontent.com/93645043/203323681-60dbeef0-cac4-40f6-857a-7bce1df584dd.png">
 4. Wait a few minutes for `snyk_exporter` to scrape issues of projects imported into Snyk, using Snyk API
    
    Run the command, `curl http://localhost:9532/metrics`
